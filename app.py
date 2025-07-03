@@ -6,7 +6,6 @@ import traceback
 import firebase_admin
 from flask import Flask, request, jsonify
 from firebase_admin import credentials, db
-from twilio.twiml.messaging_response import MessagingResponse
 
 from openai import OpenAI
 import requests
