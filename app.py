@@ -15,7 +15,7 @@ import requests
 app = Flask(__name__)
 
 # Firebase setup
-cred = credentials.Certificate(os.environ.get("GOOGLE_APPLICATION_CREDENTIALS", "firebase_key.json"))
+cred = credentials.Certificate(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://soft-whatsapp-chatbot-default-rtdb.firebaseio.com/'
 })
