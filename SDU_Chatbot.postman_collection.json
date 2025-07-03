@@ -1,0 +1,49 @@
+{
+  "info": {
+    "name": "SDU Chatbot",
+    "_postman_id": "sdu-chatbot-collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register Student",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"whatsapp\": \"2349134962947\",\n  \"department\": \"SE\"\n}"
+        },
+        "url": { "raw": "http://localhost:5000/register-student", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["register-student"] }
+      }
+    },
+    {
+      "name": "Admin Update (Webhook)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"entry\": [\n    {\n      \"changes\": [\n        {\n          \"value\": {\n            \"messages\": [\n              {\n                \"from\": \"2349134962947\",\n                \"text\": { \"body\": \"adminupdate SE CSE201 2025-06-20 08:00 Dr. John Doe\" }\n              }\n            ]\n          }\n        }\n      ]\n    }\n  ]\n}"
+        },
+        "url": { "raw": "http://localhost:5000/webhook", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["webhook"] }
+      }
+    },
+    {
+      "name": "Student Query (Webhook)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"entry\": [\n    {\n      \"changes\": [\n        {\n          \"value\": {\n            \"messages\": [\n              {\n                \"from\": \"2349134962947\",\n                \"text\": { \"body\": \"next class\" }\n              }\n            ]\n          }\n        }\n      ]\n    }\n  ]\n}"
+        },
+        "url": { "raw": "http://localhost:5000/webhook", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["webhook"] }
+      }
+    }
+  ]
+}

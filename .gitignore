@@ -1,0 +1,4 @@
+firebase_key.json
+.env
+*.env
+# Ignore secret files and environment configs
